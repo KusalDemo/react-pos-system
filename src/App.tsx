@@ -2,6 +2,7 @@ import './App.css'
 import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
 import {Home} from "./components/Home.tsx";
 import {Customer} from "./components/Customer.tsx";
+import {Item} from "./components/Item.tsx";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
                                     <div className="flex space-x-4">
                                         <Link to="/">Home</Link>
                                         <Link to="/customer">Customer</Link>
+                                        <Link to="/item">Item</Link>
                                         <a href="#"
                                            className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
                                            aria-current="page">Dashboard</a>
@@ -101,6 +103,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/customer" element={<Customer/>}/>
+                    <Route path="/item" element={<Item/>}/>
                 </Routes>
             </div>
         </Router>
