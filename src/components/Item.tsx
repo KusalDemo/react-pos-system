@@ -48,13 +48,13 @@ export function Item() {
 
             <div className="mt-4">
                 <button type="button"
-                        className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600"
+                        className="text-blue-500 border border-blue-500 px-2 py-1 rounded-md hover:bg-blue-100"
                         onClick={() => dispatch({type: 'ADD_ITEM', payload: {id, name, qtyOnHand, price, description}})}
                 >Add Item
                 </button>
                 &nbsp;
                 <button type="button"
-                        className="text-blue-500 border border-blue-500 px-2 py-1 rounded-md hover:bg-blue-100"
+                        className="text-green-500 border border-green-500 px-2 py-1 rounded-md hover:bg-green-100"
                         onClick={() => dispatch({
                             type: 'UPDATE_ITEM',
                             payload: {id, name, qtyOnHand, price, description}

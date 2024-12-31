@@ -16,106 +16,112 @@ export function Order() {
     return (
         <div className="container mx-auto p-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="form-group">
-                    <label htmlFor="itemId" className="block text-gray-700 font-medium">Select Item ID</label>
-                    <select
-                        id="itemId"
-                        className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        onChange={e => setItemId(e.target.value)}
-                    >
-                        <option value="">Select an Item</option>
-                        {state2.map((item) => (
-                            <option key={item.id} value={item.id}>
-                                {item.name}
-                            </option>
-                        ))}
+                <div>
+                    <label htmlFor="customerSelect" className="block font-medium mb-1">Customer</label>
+                    <select id="customerSelect" className="w-full p-2 border rounded-md">
+                        <option disabled defaultValue='Use Option'>Open this select menu</option>
+                        <option value="1">Customer One</option>
+                        <option value="2">Customer Two</option>
+                        <option value="3">Customer Three</option>
                     </select>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="productName" className="block text-gray-700 font-medium">Item Name</label>
-                    <input type="text" onChange={(e) => setName(e.target.value)}
-                           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                           id="productName"/>
+                <div>
+                    <label htmlFor="selectedCustomerName" className="block font-medium mb-1">Customer Name</label>
+                    <input type="text" id="selectedCustomerName" className="w-full p-2 border rounded-md" disabled/>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="productQty" className="block text-gray-700 font-medium">QTY On Hand</label>
-                    <input type="number" onChange={e => setQtyOnHand(Number(e.target.value))}
-                           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                           id="productQty"/>
+                <div>
+                    <label htmlFor="selectedCustomerAddress" className="block font-medium mb-1">Customer Address</label>
+                    <input type="text" id="selectedCustomerAddress" className="w-full p-2 border rounded-md" disabled/>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="unitPrice" className="block text-gray-700 font-medium">Unit Price</label>
-                    <input type="number" onChange={e => setPrice(Number(e.target.value))}
-                           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                           id="unitPrice"/>
+                <div>
+                    <label htmlFor="selectedCustomerSalary" className="block font-medium mb-1">Customer Salary</label>
+                    <input type="number" id="selectedCustomerSalary" className="w-full p-2 border rounded-md" disabled/>
                 </div>
-                <div className="form-group col-span-4">
-                    <label htmlFor="productDescription" className="block text-gray-700 font-medium">Product
+            </div>
+
+            <hr className="my-4"/>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4">
+                <div>
+                    <label htmlFor="productSelect" className="block font-medium mb-1">Product</label>
+                    <select id="productSelect" className="w-full p-2 border rounded-md">
+                        <option disabled defaultValue='Use Option'>Open this select menu</option>
+                        <option value="1">Product One</option>
+                        <option value="2">Product Two</option>
+                        <option value="3">Product Three</option>
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="selectedProductDescription" className="block font-medium mb-1">Product
                         Description</label>
-                    <textarea onChange={e => setDescription(e.target.value)}
-                              className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                              id="productDescription"></textarea>
+                    <input type="text" id="selectedProductDescription" className="w-full p-2 border rounded-md"
+                           disabled/>
+                </div>
+                <div>
+                    <label htmlFor="selectedProductUnitPrice" className="block font-medium mb-1">Unit Price</label>
+                    <input type="number" id="selectedProductUnitPrice" className="w-full p-2 border rounded-md"
+                           disabled/>
+                </div>
+                <div>
+                    <label htmlFor="selectedProductQTY" className="block font-medium mb-1">QTY On Hand</label>
+                    <input type="number" id="selectedProductQTY" className="w-full p-2 border rounded-md" disabled/>
+                </div>
+                <div>
+                    <label htmlFor="orderQTY" className="block font-medium mb-1">Order QTY</label>
+                    <input type="number" id="orderQTY" className="w-full p-2 border rounded-md"/>
                 </div>
             </div>
 
-            <div className="mt-4">
-                <button type="button"
-                        className="text-blue-500 border border-blue-500 px-2 py-1 rounded-md hover:bg-blue-100"
-                        onClick={() => dispatch({type: 'ADD_ITEM', payload: {id, name, qtyOnHand, price, description}})}
-                >Add Item
-                </button>
-                &nbsp;
-                <button type="button"
-                        className="text-green-500 border border-green-500 px-2 py-1 rounded-md hover:bg-green-100"
-                        onClick={() => dispatch({
-                            type: 'UPDATE_ITEM',
-                            payload: {id, name, qtyOnHand, price, description}
-                        })}
-                >Edit Item
+            <hr className="my-4"/>
+
+            <div className="flex justify-start">
+                <button type="button" className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
+                    Add Product
                 </button>
             </div>
 
-            <hr className="my-6 border-gray-300"/>
+            <hr className="my-4"/>
 
-            <div className="mt-4">
-                <input type="search" placeholder="Search for product"
-                       className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+            <div className="mb-4">
+                <input type="search" className="w-full p-2 border rounded-md" placeholder="Search for product"/>
             </div>
 
-            <div className="mt-4 overflow-x-auto">
-                <table className="w-full table-auto border-collapse border border-gray-300">
+            <div>
+                <table className="w-full border-collapse border border-gray-200 text-center">
                     <thead>
-                    <tr className="bg-gray-100 text-left">
-                        <th className="border border-gray-300 px-4 py-2"># Id</th>
-                        <th className="border border-gray-300 px-4 py-2">Product Name</th>
-                        <th className="border border-gray-300 px-4 py-2">Product Description</th>
-                        <th className="border border-gray-300 px-4 py-2">QTY On Hand</th>
-                        <th className="border border-gray-300 px-4 py-2">Unit Price</th>
-                        <th className="border border-gray-300 px-4 py-2">Delete</th>
+                    <tr className="bg-gray-100">
+                        <th className="p-2 border"># Id</th>
+                        <th className="p-2 border">Product Name</th>
+                        <th className="p-2 border">Unit Price</th>
+                        <th className="p-2 border">QTY</th>
+                        <th className="p-2 border">Total</th>
+                        <th className="p-2 border">Delete option</th>
                     </tr>
                     </thead>
                     <tbody>
-                    {
-                        state.map((item) => (
-                            <tr className="hover:bg-gray-50" key={item.id}>
-                                <td className="border border-gray-300 px-4 py-2">{item.id}</td>
-                                <td className="border border-gray-300 px-4 py-2">{item.name}</td>
-                                <td className="border border-gray-300 px-4 py-2">{item.description}</td>
-                                <td className="border border-gray-300 px-4 py-2">{item.qtyOnHand}</td>
-                                <td className="border border-gray-300 px-4 py-2">{item.price}</td>
-                                <td className="border border-gray-300 px-4 py-2">
-                                    <button type="button"
-                                            className="text-red-500 border border-red-500 px-2 py-1 rounded-md hover:bg-red-100"
-                                            onClick={() => dispatch({type: 'DELETE_ITEM', payload: item})}
-                                    >Delete
-                                    </button>
-                                </td>
-                            </tr>
-                        ))
-                    }
+                    <tr>
+                        <td className="p-2 border">1</td>
+                        <td className="p-2 border">Product One</td>
+                        <td className="p-2 border">100</td>
+                        <td className="p-2 border">10</td>
+                        <td className="p-2 border">1000</td>
+                        <td className="p-2 border">
+                            <button type="button" className="text-red-500 hover:text-red-700">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
+
+            <div className="flex justify-between items-center mt-4 p-4 bg-gray-50 border rounded-md">
+                <h1 className="text-xl font-bold">Total: 2500.00</h1>
+                <button type="button" className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md">
+                    Place Order
+                </button>
+            </div>
         </div>
+
     )
 }
